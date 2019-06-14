@@ -106,7 +106,7 @@
         // 将2个回调函数保存到callbacks
         /* self.callbacks.push({
           onResolved,
-          onResjected
+          onRejected
         }) */
 
         self.callbacks.push( {
