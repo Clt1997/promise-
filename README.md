@@ -1,6 +1,8 @@
 # Promise
 
       Promise函数内部相关的异步调用将被插入微队列,微队列的优先级比宏队列高的多,宏队列每一项在执行时都要保证微队列是空的.
+      Promise的提出解决了回调地狱的问题(callback hell)
+      配合ajax和async await使用
 
 ## 1.function Promise (executor)
 
