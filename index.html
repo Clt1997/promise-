@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <script src="Promise.js"></script>
+  <!-- <script src="Promise.js"></script> -->
   <script>
     let promise = new Promise( ( resolve, reject ) => {
       // setTimeout(() => {
@@ -17,6 +17,9 @@
       console.log( 1 );
       // });
     } )
+
+    console.log( promise );
+
     promise.then(
       value => {
         console.log( value );

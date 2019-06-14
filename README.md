@@ -9,6 +9,7 @@
 1).生成一个 Promise 对象
 
       设置 data 、 status 及 callbacks 三个属性
+      原生Promise现实时没有callbacks属性  [[promisedata]]  [[promisestatus]]
       data 用于存储数据默认值为 undefined,数据由调用 resolve 或 reject 的时候传入
       status 用于标记状态 状态有 pending resolved(fulfilled) rejected 三种
               -pending 为默认状态 表示初始状态
@@ -58,7 +59,8 @@
 
 ## 3. Promise.prototype.catch 方法
 
-      就是.then方法传入 undefined 和 函数 的调用
+      相当于.then方法传入 undefined 和 函数 的调用
+      内部实现时第一个参数未指定时会向下传参
 
 ## 4. Promise.resolve 方法 & Promise.reject 方法
 
@@ -71,7 +73,7 @@
 
       Promise.all 方法 & Promise.race 方法都需要传入一个promise对象勾成的数组
       .all在所有promise执行成功时返回一个数组,并将值一一对应的返回
-          若有某一个promise执行错误则直接返回错误
+          若有某一个promise执行错误则直接返回错误     用于一次发布多个请求,全部成功才返回成功
       .race在第一个promise执行成功时就立刻返回一个值 (赛跑模式)
       若传入的参数不是promise对象结果为成功(内部执行遍历,并调用Promise.resolve() 处理)
       失败时调用reject()处理 成功时将调用 resolve() 处理值或储存值( Promise.all这么处理 并判断,待处理完后返回)
